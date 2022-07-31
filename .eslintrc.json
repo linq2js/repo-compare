@@ -8,9 +8,10 @@
   ],
   "env": {
     "node": true,
-    "commonjs": true
+    "commonjs": true,
+    "jest": true
   },
-  "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
+  "plugins": ["react", "@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
   "rules": {
     "react/react-in-jsx-scope": "off",
