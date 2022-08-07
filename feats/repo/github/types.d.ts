@@ -116,3 +116,9 @@ export interface GithubRawLicenseInfo {
 }
 
 export type GithubRawSearchRepoResult = GithubRawSearchResult<GithubRawRepoInfo>;
+
+export type GithubSearchPayload = {
+  q: string;
+  page?: number;
+  per_page?: number;
+};
