@@ -12,7 +12,7 @@ const AddRepoButton = stable(() => {
 
   return (
     <>
-      {modal.render({ isOpen: false })}
+      {modal.render({})}
       {mainTrans('AddRepoButton', (T) => (
         <Fab
           py={2}

@@ -13,8 +13,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@emotion/native": "11.9.3",
-    "@emotion/react": "11.9.3",
     "@expo/vector-icons": "^13.0.0",
     "@native-base/icons": "^0.0.11",
     "axios": "^0.27.2",
@@ -24,11 +22,10 @@
     "i18next": "^21.8.16",
     "lodash": "^4.17.21",
     "native-base": "^3.4.9",
-    "rativ": "3.1.15",
+    "rativ": "3.1.16",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-i18next": "^11.18.3",
-    "react-icons": "^4.4.0",
     "react-native": "0.68.2",
     "react-native-safe-area-context": "4.2.4",
     "react-native-svg": "12.3.0",

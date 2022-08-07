@@ -13,14 +13,20 @@ export type ModalBodyProps<R> = {
 };
 
 export type ModalProps = {
-  isOpen: boolean;
+  isOpen?: boolean;
 };
 
 export type Options = {
   header?: ReactNode;
   footer?: ReactNode;
+  /**
+   * if customParts = true, no Modal.Header and Modal.Footer are rendered, and all modal parts will render by the input component
+   */
   customParts?: boolean;
   hideCloseButton?: boolean;
+  /**
+   * if disableScrolling = true, the modal will no render ScrollView which wraps modal body component
+   */
   disableScrolling?: boolean;
   modalProps?: MaybeResponsiveValue<PropsOf<typeof Modal>>;
   contentProps?: MaybeResponsiveValue<PropsOf<typeof Modal['Content']>>;
@@ -41,8 +47,12 @@ export type ModalController<R> = {
   hide(result?: R): void;
 };
 
+export type IsEmptyObject<T> = [keyof T] extends [never] ? true : false;
+
 export type ModalCreator<T, R> = {
-  (): ModalController<R> & { render(props: T & ModalProps): ReactNode };
+  (): ModalController<R> & {
+    render(props: T & ModalProps): ReactNode;
+  };
 
   (defaultProps: T & ModalProps): ModalController<R> & {
     render(props?: Partial<T & ModalProps>): ReactNode;
@@ -50,10 +60,40 @@ export type ModalCreator<T, R> = {
 };
 
 export type CreateModal = {
+  /**
+   * create a modal component that is based on the input component. The return value is modal creator
+   * ```jsx
+   * const MyModal = createModal(MyModalBody);
+   *
+   * const MyApp = stable(() => {
+   *  const modal = MyModal(propsOfMyModalBody);
+   *
+   *  return <>
+   *    {modal.render({})}
+   *    <Button onPress={modal.show}>Show modal</Button>
+   *  </>
+   * })
+   * ```
+   */
   <T>(component: FC<T>, options?: Options): NoInfer<
     ModalCreator<T, T extends ModalBodyProps<infer R> ? R : void>
   >;
 
+  /**
+   * create a modal component that is based on the input component. The return value is modal creator
+   * ```jsx
+   * const MyModal = createModal(MyModalBody);
+   *
+   * const MyApp = stable(() => {
+   *  const modal = MyModal(propsOfMyModalBody);
+   *
+   *  return <>
+   *    {modal.render({})}
+   *    <Button onPress={modal.show}>Show modal</Button>
+   *  </>
+   * })
+   * ```
+   */
   <B extends ModalButtons, T, R extends keyof B>(
     component: FC<T & ModalProps>,
     options: OptionsWithButtons<B>,

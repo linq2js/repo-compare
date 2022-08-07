@@ -51,7 +51,7 @@ export type TranslatedSlot<T> = {
    */
   <K extends T extends Record<string, unknown> ? FieldPath<T> : never>(
     key: K,
-    props?: PropsOf<Text>,
+    props?: PropsOf<typeof Text>,
   ): ReactNode;
 };
 
