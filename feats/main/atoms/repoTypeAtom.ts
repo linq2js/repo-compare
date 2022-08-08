@@ -1,6 +1,6 @@
 import { atom } from 'rativ';
 
-import { RepoType } from '@/shared/types';
+import { RepoType } from '@/types';
 
 const repoTypeAtom = atom<RepoType>('github');
 

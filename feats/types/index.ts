@@ -3,7 +3,7 @@ import { InterfaceToastProps } from 'native-base/lib/typescript/components/compo
 
 import { Component, FC } from 'react';
 
-import { mediaQueries } from '../configs';
+import { mediaQueries } from '../shared/configs';
 
 type UseMediaQueryParams = Parameters<typeof useMediaQuery>;
 
@@ -38,20 +38,6 @@ export type SearchResult<T> = {
 export interface VoidFunction {
   (): void;
 }
-
-export type ResponsiveData<T> = {
-  fallback: T;
-  ios?: { [key in MediaQuries | 'fallback']?: T };
-  android?: { [key in MediaQuries | 'fallback']?: T };
-} & {
-  [key in MediaQuries]?: T;
-};
-
-export type ResponsiveValue<T> = {
-  responsiveData: ResponsiveData<T>;
-};
-
-export type MaybeResponsiveValue<T> = T | ResponsiveValue<T>;
 
 export type ToastInfo = InterfaceToastProps & { type?: 'error' | 'info' };
 

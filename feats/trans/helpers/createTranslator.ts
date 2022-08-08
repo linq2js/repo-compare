@@ -7,7 +7,7 @@ import { slot } from 'rativ/react';
 import React, { createElement, ReactNode, useMemo } from 'react';
 import { Trans, TransProps, useTranslation } from 'react-i18next';
 
-import { PropsOf } from '@/shared/types';
+import { PropsOf } from '@/types';
 
 export interface I18nUtils {
   is(lang: string): boolean;

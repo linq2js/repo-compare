@@ -1,7 +1,7 @@
 import { Box, Heading, Text } from 'native-base';
 import { stable } from 'rativ/react';
 
-import { PropsOf, ToastInfo } from '../types';
+import { PropsOf, ToastInfo } from '../../types';
 
 const Toast = stable((props: ToastInfo) => {
   const backColor: PropsOf<typeof Box>['bg'] = props.type === 'error' ? 'red.500' : 'blue.500';

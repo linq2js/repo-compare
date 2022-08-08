@@ -1,6 +1,6 @@
 import { atom } from 'rativ';
 
-import { RepoInfo, SearchResult } from '@/shared/types';
+import { RepoInfo, SearchResult } from '@/types';
 
 const emptySearchResult: SearchResult<RepoInfo> = { total: 0, items: [] };
 

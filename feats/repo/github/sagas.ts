@@ -2,7 +2,7 @@ import { SC } from 'rativ/saga';
 
 import { api } from './api';
 
-import { RepoInfo, RepoType, SearchResult, SearchPayload } from '@/shared/types';
+import { RepoInfo, RepoType, SearchResult, SearchPayload } from '@/types';
 
 const searchRepoSaga = async (
   { call }: SC,

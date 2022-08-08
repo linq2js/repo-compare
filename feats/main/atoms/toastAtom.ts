@@ -1,6 +1,6 @@
 import { atom } from 'rativ';
 
-import { ToastInfo } from '@/shared/types';
+import { ToastInfo } from '@/types';
 
 const toastAtom = atom<ToastInfo | undefined>(undefined);
 

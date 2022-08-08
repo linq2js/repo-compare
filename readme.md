@@ -4,6 +4,8 @@
 - [Project file structure](#project-file-structure)
   - [Rules](#rules)
 - [Project pakcages](#project-pakcages)
+- [Project customization](#project-customization)
+  - [Theming](#theming)
 - [Rativ user guide](#rativ-user-guide)
 
 # Prerequisites and Installation
@@ -20,6 +22,9 @@ __tests__ # put unit test/integration test files here
 docs/
 assets/
 feats/
+    # where to put all project runtime configs
+    configs/
+        theme.ts
     main/
         docs/ # contains documentations of the feature
         # feature logic
@@ -43,12 +48,14 @@ feats/
                 effects/
                 sagas/
                 types/
+                navigation/
                 # export the component and its child components here
                 index.tsx
         modals/
         screens/
         hooks/
         helpers/
+        navigation/
         types/
     shared/
 App.tsx
@@ -61,6 +68,15 @@ App.tsx
 - The component's skeleton must be in the same file as the component
 
 # Project pakcages
+
+# Project customization
+
+## Theming
+
+Please refer this link to see how to customize theming https://docs.nativebase.io/default-theme
+
+Color palatte generator https://palx.jxnblk.com/
+Color swatch generator https://smart-swatch.netlify.app/
 
 # Rativ user guide
 

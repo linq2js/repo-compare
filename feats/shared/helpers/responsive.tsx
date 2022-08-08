@@ -1,34 +1,57 @@
 import { ReactNode } from 'react';
 import { Platform } from 'react-native';
 
-import { matchQueriesAtom } from '../comps/ResponsiveProvider';
-import { ResponsiveData } from '../types';
+import { currentBreakpointAtom, Breakpoint } from '../comps/ResponsiveProvider';
 
 type Renderer = () => ReactNode;
 
+type OS = typeof Platform['OS'];
+
+type ResponsiveKey = Breakpoint | OS;
+
 // make fallback prop is optional
-export type ResponsiveConfigs = Omit<ResponsiveData<Renderer>, 'fallback'> & {
-  fallback?: Renderer;
+export type ResponsiveConfigs = {
+  [key in ResponsiveKey]?: Renderer | ResponsiveConfigs;
 };
 
+const os = Platform.OS;
+
 /**
- * render everything responsively
- * ```js
- * <Responsive/>
- * ```
+ * render components responsively
  * @param configs
  * @returns
  */
 const responsive = (configs: ResponsiveConfigs) => {
-  const os = Platform.OS;
-  const specific = {
-    ...configs,
-    ...((os === 'ios' ? configs.ios : os === 'android' ? configs.android : undefined) ?? configs),
-  };
+  const breakpoint = currentBreakpointAtom();
+  const renderer = findRenderer(configs, breakpoint);
 
-  const matchQuery = matchQueriesAtom().find((x) => x in specific);
-  const renderFn = matchQuery ? specific[matchQuery] : specific.fallback;
-  return <>{renderFn?.()}</>;
+  return <>{renderer?.()}</>;
 };
+
+function findRenderer(configs: ResponsiveConfigs, breakpoint: Breakpoint) {
+  let renderer: Renderer | undefined;
+  Object.keys(configs).some((key) => {
+    const value = configs[key as ResponsiveKey];
+    if (!value) return false;
+
+    const match = key === os || key === breakpoint;
+
+    if (typeof value === 'function') {
+      if (match) {
+        renderer = value;
+        return true;
+      }
+      return false;
+    }
+
+    // value is sub query
+    if (match) {
+      renderer = findRenderer(value, breakpoint);
+      if (renderer) return true;
+    }
+  });
+
+  return renderer ?? (typeof configs.base === 'function' ? configs.base : undefined);
+}
 
 export { responsive };

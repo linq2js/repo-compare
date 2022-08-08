@@ -4,8 +4,7 @@ import { slot } from 'rativ/react';
 
 import { createElement, FC, ReactNode } from 'react';
 
-import { translateResponsiveValues } from '../hooks/translateResponsiveValues';
-import { MaybeResponsiveValue, PropsOf, VoidFunction } from '../types';
+import { PropsOf, VoidFunction } from '../../types';
 
 export type ModalBodyProps<R> = {
   isOpen: boolean;
@@ -28,11 +27,11 @@ export type Options = {
    * if disableScrolling = true, the modal will no render ScrollView which wraps modal body component
    */
   disableScrolling?: boolean;
-  modalProps?: MaybeResponsiveValue<PropsOf<typeof Modal>>;
-  contentProps?: MaybeResponsiveValue<PropsOf<typeof Modal['Content']>>;
-  bodyProps?: MaybeResponsiveValue<PropsOf<typeof Modal['Body']>>;
-  footerProps?: MaybeResponsiveValue<PropsOf<typeof Modal['Footer']>>;
-  headerProps?: MaybeResponsiveValue<PropsOf<typeof Modal['Header']>>;
+  modalProps?: PropsOf<typeof Modal>;
+  contentProps?: PropsOf<typeof Modal['Content']>;
+  bodyProps?: PropsOf<typeof Modal['Body']>;
+  footerProps?: PropsOf<typeof Modal['Footer']>;
+  headerProps?: PropsOf<typeof Modal['Header']>;
 };
 
 export type ModalButtonProps = { onPress: VoidFunction };
@@ -140,9 +139,6 @@ const createModal: CreateModal = (
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const render = (props: any) => {
-      const [rvModalProps, rvContentProps, rvHeaderProps, rvBodyProps, rvFooterProps] =
-        translateResponsiveValues(modalProps, contentProps, headerProps, bodyProps, footerProps);
-
       return slot(() => {
         const componentProps = {
           ...defaultProps,
@@ -152,28 +148,28 @@ const createModal: CreateModal = (
         const buttons = (options as OptionsWithButtons<{}>).buttons;
 
         return (
-          <Modal {...rvModalProps} isOpen={componentProps.isOpen} onClose={closeWithoutResult}>
-            <Modal.Content {...rvContentProps}>
+          <Modal {...modalProps} isOpen={componentProps.isOpen} onClose={closeWithoutResult}>
+            <Modal.Content {...contentProps}>
               {!customParts && !hideCloseButton && <Modal.CloseButton />}
-              {!customParts && <Modal.Header {...rvHeaderProps}>{header ?? ' '}</Modal.Header>}
+              {!customParts && <Modal.Header {...headerProps}>{header ?? ' '}</Modal.Header>}
               {
                 // if customParts === true, that means user want to render all modal parts manually
                 customParts || disableScrolling ? (
                   disableScrolling ? (
-                    <Box flex={1} {...rvBodyProps}>
+                    <Box flex={1} {...bodyProps}>
                       <Component {...componentProps} />
                     </Box>
                   ) : (
                     <Component {...componentProps} />
                   )
                 ) : (
-                  <Modal.Body {...rvBodyProps}>
+                  <Modal.Body {...bodyProps}>
                     <Component {...componentProps} />
                   </Modal.Body>
                 )
               }
               {!customParts && (buttons || typeof footer !== 'undefined') && (
-                <Modal.Footer {...rvFooterProps}>
+                <Modal.Footer {...footerProps}>
                   {footer}
                   {buttons && (
                     <Button.Group space={2}>

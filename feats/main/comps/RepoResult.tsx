@@ -5,7 +5,7 @@ import { stable } from 'rativ/react';
 import { Platform } from 'react-native';
 
 import { PrimaryButton } from '@/shared/comps/PrimaryButton';
-import { RepoInfo } from '@/shared/types';
+import { RepoInfo } from '@/types';
 
 export type Props = { repo: RepoInfo };
 

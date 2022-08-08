@@ -3,7 +3,7 @@ import { stable } from 'rativ/react';
 
 import { repoTypeAtom } from '../atoms/repoTypeAtom';
 
-import { PropsOf, repoTypes } from '@/shared/types';
+import { PropsOf, repoTypes } from '@/types';
 
 export type Props = Omit<
   PropsOf<typeof Select>,

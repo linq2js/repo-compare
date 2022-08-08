@@ -3,6 +3,7 @@ import { NativeBaseProvider } from 'native-base';
 import { FC } from 'react';
 import { SafeAreaView } from 'react-native';
 
+import { theme } from '@/configs/theme';
 import { bootstrap } from '@/main/sagas/bootstrap';
 import { HomeScreen } from '@/main/screens/HomeScreen';
 import { ResponsiveProvider } from '@/shared/comps/ResponsiveProvider';
@@ -14,7 +15,7 @@ const FixSafeAreaView = SafeAreaView as unknown as FC;
 
 export default function App() {
   return (
-    <NativeBaseProvider>
+    <NativeBaseProvider theme={theme}>
       <FixSafeAreaView>
         <HomeScreen />
       </FixSafeAreaView>
