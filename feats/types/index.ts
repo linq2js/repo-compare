@@ -3,13 +3,9 @@ import { InterfaceToastProps } from 'native-base/lib/typescript/components/compo
 
 import { Component, FC } from 'react';
 
-import { mediaQueries } from '../shared/configs';
-
 type UseMediaQueryParams = Parameters<typeof useMediaQuery>;
 
 export const repoTypes = ['github', 'pubdev', 'npm'] as const;
-
-export type MediaQuries = keyof typeof mediaQueries;
 
 export type Query = UseMediaQueryParams extends Array<infer T> ? T : never;
 

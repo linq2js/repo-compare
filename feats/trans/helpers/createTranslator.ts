@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { i18n, StringMap, TFunction, TOptions } from 'i18next';
-import { Text } from 'native-base';
 import { FieldPath, Path, PathValue } from 'rativ/dist/tsc/util/pathTypes';
 import { slot } from 'rativ/react';
 
 import React, { createElement, ReactNode, useMemo } from 'react';
 import { Trans, TransProps, useTranslation } from 'react-i18next';
 
+import { ThemedText } from '@/shared/comps/ThemedText';
 import { PropsOf } from '@/types';
 
 export interface I18nUtils {
@@ -51,7 +51,7 @@ export type TranslatedSlot<T> = {
    */
   <K extends T extends Record<string, unknown> ? FieldPath<T> : never>(
     key: K,
-    props?: PropsOf<typeof Text>,
+    props?: PropsOf<typeof ThemedText>,
   ): ReactNode;
 };
 
@@ -124,7 +124,7 @@ function createTranslator<T extends Record<string, unknown>, K extends keyof T>(
       return slot(() => {
         const [t] = useTranslation(rootNs as string);
         return createElement(
-          Text,
+          ThemedText,
           {
             ...(render as Record<string, unknown>),
           },

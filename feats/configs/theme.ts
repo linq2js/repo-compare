@@ -1,11 +1,18 @@
-import { ITheme, theme as themeBase } from 'native-base';
+import { extendTheme, theme } from 'native-base';
 
-const theme: ITheme = {
-  ...themeBase,
+const themeConfigs = extendTheme({
+  dark: {
+    textColor: theme.colors.lightText,
+    backColor: theme.colors.gray['800'],
+  },
+  light: {
+    textColor: theme.colors.darkText,
+    backColor: theme.colors.white,
+  },
   colors: {
-    ...themeBase.colors,
-    primary: themeBase.colors.blue,
-    secondary: themeBase.colors.gray,
+    ...theme.colors,
+    primary: theme.colors.blue,
+    secondary: theme.colors.gray,
   },
   breakpoints: {
     base: 0,
@@ -15,6 +22,10 @@ const theme: ITheme = {
     xl: 1280,
     '2xl': 1536,
   },
-};
+  config: {
+    // initialColorMode: 'dark',
+    // useSystemColorMode: false,
+  },
+});
 
-export { theme };
+export { themeConfigs };
