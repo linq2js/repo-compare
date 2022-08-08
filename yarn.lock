@@ -1944,6 +1944,17 @@
     "@react-types/combobox" "^3.5.2"
     "@react-types/shared" "^3.14.0"
 
+"@react-aria/focus@3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.2.3.tgz#3e4137498a7fb5235d056c30fd94ab4a82e73aea"
+  integrity sha512-+OWmJMivrq3f8ApWihH1KJYqYj3rZV34YJORacBohcAsF1Qd1V1/P+w3dMkf24kV0wqAiWePCF1FwgnrL/rYzQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/interactions" "^3.3.0"
+    "@react-aria/utils" "^3.4.0"
+    "@react-types/shared" "^3.3.0"
+    clsx "^1.1.1"
+
 "@react-aria/focus@^3.2.3", "@react-aria/focus@^3.7.0":
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.7.0.tgz#6a90dc99da64bd145e3eeacf3097a29a0342f709"
@@ -1969,7 +1980,7 @@
     "@react-aria/utils" "^3.13.2"
     "@react-types/shared" "^3.14.0"
 
-"@react-aria/interactions@^3.10.0", "@react-aria/interactions@^3.3.2":
+"@react-aria/interactions@^3.10.0", "@react-aria/interactions@^3.3.0", "@react-aria/interactions@^3.3.2":
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/@react-aria/interactions/-/interactions-3.10.0.tgz#d60cc42c3904c1578f9c356fba4bab7003102dee"
   integrity sha512-Lp74VfF+EskT3IqK2MBMdJpJU48p60+YkMbgtoDF6LudNO8jw0nxcsvnimPriTSkZWINRpajG/9sIa0EIDcQKw==
@@ -2139,7 +2150,7 @@
     "@react-types/shared" "^3.14.0"
     "@react-types/switch" "^3.2.2"
 
-"@react-aria/utils@^3.13.2", "@react-aria/utils@^3.3.0", "@react-aria/utils@^3.4.1", "@react-aria/utils@^3.6.0":
+"@react-aria/utils@^3.13.2", "@react-aria/utils@^3.3.0", "@react-aria/utils@^3.4.0", "@react-aria/utils@^3.4.1", "@react-aria/utils@^3.6.0":
   version "3.13.2"
   resolved "https://registry.yarnpkg.com/@react-aria/utils/-/utils-3.13.2.tgz#c28bc96e940a8a84c3e69a19f483c9f060584580"
   integrity sha512-VTI8tv9m/BxE/lPTNCZN1fcHuY540xm+HT1vg2ZQCryudUWvzQkHi+h0z32DhiGHhvRFIGdH/enf3psip7ZLTQ==
@@ -2194,7 +2205,7 @@
     "@react-native-aria/utils" "^0.2.6"
     "@react-types/button" "^3.3.1"
 
-"@react-native-aria/focus@^0.2.4":
+"@react-native-aria/focus@^0.2.6":
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/@react-native-aria/focus/-/focus-0.2.6.tgz#b824944b2d7020f74a80fd849f2bf77aac9d3d29"
   integrity sha512-J/WKi5qizCFwv3XCDTSUePYz7zfpGpwU4XsDQZ48j2DlC29sX7JbRoml9/lu8/hhEEOz6/mpkaaFTgv0uFZcVA==
@@ -2810,7 +2821,7 @@
   dependencies:
     "@react-types/shared" "^3.14.0"
 
-"@react-types/shared@^3.14.0", "@react-types/shared@^3.2.1", "@react-types/shared@^3.4.0":
+"@react-types/shared@^3.14.0", "@react-types/shared@^3.2.1", "@react-types/shared@^3.3.0", "@react-types/shared@^3.4.0":
   version "3.14.0"
   resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.14.0.tgz#240991d6672f32ecd2a172111e163be0fe0778f2"
   integrity sha512-K069Bh/P0qV3zUG8kqabeO8beAUlFdyVPvpcNVPjRl+0Q9NDS9mfdQbmUa0LqdVo5e6jRPdos77Ylflkrz8wcw==
@@ -7826,18 +7837,18 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-native-base@^3.4.9:
-  version "3.4.9"
-  resolved "https://registry.yarnpkg.com/native-base/-/native-base-3.4.9.tgz#01e6a1a674d46fd04ef34cce8dc221a9cc20c966"
-  integrity sha512-5Fu2SpVHcgSsvyaiPEeSSwYyymajC34TNqwWmimVEv9+QyrkT2qfiY52t/cmhpnPDECodIq8fyjPTJIqIK3tMw==
+native-base@^3.4.11:
+  version "3.4.11"
+  resolved "https://registry.yarnpkg.com/native-base/-/native-base-3.4.11.tgz#fa03a49635ae3fad1b63605ef3dd6facf892803e"
+  integrity sha512-2eRH1m16TeRr+flaqhlO/NXtjjtH3nLqfeYvZcJUiwEvwWyXjFnsk8UkLJY1214CYOWTnU929wEWBMJKbm/8HQ==
   dependencies:
-    "@react-aria/focus" "^3.2.3"
+    "@react-aria/focus" "3.2.3"
     "@react-aria/utils" "^3.6.0"
     "@react-aria/visually-hidden" "^3.2.1"
     "@react-native-aria/button" "^0.2.4"
     "@react-native-aria/checkbox" "^0.2.2"
     "@react-native-aria/combobox" "^0.2.4-alpha.0"
-    "@react-native-aria/focus" "^0.2.4"
+    "@react-native-aria/focus" "^0.2.6"
     "@react-native-aria/interactions" "^0.2.2"
     "@react-native-aria/listbox" "^0.2.4-alpha.3"
     "@react-native-aria/overlays" "0.3.3-rc.0"

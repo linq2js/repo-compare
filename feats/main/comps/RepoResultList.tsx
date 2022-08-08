@@ -11,7 +11,7 @@ const RepoResultList = stable(() => {
     return (
       <VStack space="md">
         {searchRepoResultAtom().items.map((repo) => (
-          <RepoResult key={repo.fullName} repo={repo} />
+          <RepoResult key={repo.key} repo={repo} />
         ))}
       </VStack>
     );

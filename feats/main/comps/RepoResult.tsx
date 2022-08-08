@@ -44,9 +44,7 @@ const RepoResultSkeleton = stable((props: { count: number }) => {
   return (
     <VStack space="md">
       {new Array(props.count).fill(null).map((_, i) => (
-        <>
-          <Skeleton.Text key={i} />
-        </>
+        <Skeleton.Text key={i} />
       ))}
     </VStack>
   );

@@ -1,25 +1,21 @@
 import { IColorModeContextProps, Switch, useColorMode } from 'native-base';
-import { Refs, stable } from 'rativ/react';
+import { stable } from 'rativ/react';
 
-import { ThemedText } from './ThemedText';
+/**
+ * this component demostrate how to share value between stable part and unstable part
+ */
+const ColorModeSwitcher = stable(() => {
+  // stable part
+  let colorModeContext: IColorModeContextProps | undefined;
 
-const ColorModeSwitcher = stable((_, refs: Refs<{ colorModeContext: IColorModeContextProps }>) => {
   const changeColorMode = (isDark: boolean) => {
-    refs.colorModeContext.setColorMode(isDark ? 'dark' : 'light');
+    colorModeContext?.setColorMode(isDark ? 'dark' : 'light');
   };
 
   return () => {
-    refs.colorModeContext = useColorMode();
-
-    return (
-      <>
-        <Switch
-          onValueChange={changeColorMode}
-          value={refs.colorModeContext.colorMode === 'dark'}
-        />
-        <ThemedText>{refs.colorModeContext.colorMode}</ThemedText>
-      </>
-    );
+    // unstable part
+    colorModeContext = useColorMode();
+    return <Switch onToggle={changeColorMode} isChecked={colorModeContext.colorMode === 'dark'} />;
   };
 });
 
