@@ -1,16 +1,20 @@
-// import { HomeScreen } from './screens/HomeScreen';
-import { HomeScreen } from './screens/HomeScreen';
+import { HomeScreen, NestedNavigator } from './screens/HomeScreen';
 
-import { createNavigator } from '@/shared/helpers/navigator';
+import { createNavigator } from '@/navigation/helpers/createnavigator';
+import { ScreenParams } from '@/types';
+import { userProfileAtom } from '@/user/atoms/userProfileAtom';
 
 type Params = {
-  home: undefined;
+  home: undefined | ScreenParams<NestedNavigator>;
 };
 
-const MainNavigator = createNavigator<Params>(({ Screen }) => (
-  <>
-    <Screen name="home" component={HomeScreen} />
-  </>
-));
+const MainNav = createNavigator<Params>(({ Screen }) =>
+  // using atom of other feature to handle screen rendering
+  userProfileAtom() ? (
+    <>
+      <Screen name="home" component={HomeScreen} options={{ headerShown: false }} />
+    </>
+  ) : null,
+);
 
-export { MainNavigator };
+export { MainNav };

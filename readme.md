@@ -74,9 +74,13 @@ App.tsx
 
 ## Conventions
 
+- The screen component name must have `Screen` postfix (ex: `HomeScreen`)
+- The modal component name must have `Modal` postfix (ex: `LoginModal`)
+- Normal folder name must be snake_case (ex: `feats/quick_start`)
+- Component file/folder name muse be CamelCase (ex: `HomeScreen`, `UserProfile`)
+- Class/Type/Model name must be CamelCase (ex: `User`, `UserProfileModel`)
+- Util/helper/service file name muse be pascalCase (ex: `createModal.tsx`)
 - The component's skeleton must be in the same file as the component
-- The screen component name must have `Screen` postfix
-- The modal component name must have `Modal` postfix
 
 # Project pakcages
 
@@ -130,13 +134,13 @@ All locale files are located in /feats/trans/locales
 - Must create translator hook for each feature. The code below shows how to create translator hook and use the hook with component
 
   ```tsx
-  // myFeatureName/hooks/translator.ts
+  // user/hooks/translator.ts
   import { defaultLocale } from '@/trans';
   import { createTranslator } from '@/trans/helpers/createTranslator';
 
-  const [useFeatureNameTrans, featureNameTrans] = createTranslator(defaultLocale, 'featureName');
+  const [useUserText, UserText] = createTranslator(defaultLocale, 'featureName');
 
-  export { useFeatureNameTrans, featureNameTrans };
+  export { useUserText, UserText };
 
   // myFeatureName/comps/MyComponent
   // using translatedSlot function
@@ -146,12 +150,12 @@ All locale files are located in /feats/trans/locales
         <Box>
           {
             // create Text component from translated text MyComponent.heading
-            featureNameTrans('MyComponent.heading')
+            UserText('MyComponent.heading')
           }
         </Box>
         {
           // passing custom render function, the render function receives translator(key)
-          featureNameTrans('MyComponent', (T) => (
+          UserText('MyComponent', (T) => (
             <>
               <Text>{T('heading')}</Text>
               <Text>{T('description')}</Text>
@@ -164,7 +168,7 @@ All locale files are located in /feats/trans/locales
 
   const Example2 = stable(() => {
     return () => {
-      const T = useFeatureNameTrans('MyComponent');
+      const T = useUserText('MyComponent');
 
       return (
         <>

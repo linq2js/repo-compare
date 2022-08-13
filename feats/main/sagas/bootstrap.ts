@@ -1,8 +1,9 @@
 import { spawn } from 'rativ/saga';
 
-import { searchRepoSaga } from './searchRepoSaga';
+import { toastSignal } from '../atoms/toastSignal';
 
 import { initTranslation } from '@/trans';
+import { userBootstrap } from '@/user/sagas/userBootstrap';
 
 /**
  * where to put all app bootstrapping logic
@@ -12,8 +13,12 @@ const bootstrap = () => {
 
   initTranslation();
 
-  spawn(({ fork }) => {
-    fork(searchRepoSaga);
+  spawn(({ onError, call }) => {
+    onError((error: Error) => {
+      toastSignal({ type: 'error', description: error.message });
+    });
+
+    call(userBootstrap);
   });
 };
 

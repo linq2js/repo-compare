@@ -3,12 +3,12 @@ import { stable } from 'rativ/react';
 
 import { Toast } from './Toast';
 
-import { toastAtom } from '@/main/atoms/toastAtom';
+import { toastSignal } from '@/main/atoms/toastSignal';
 
 const ToastProvider = stable(() => {
   let toast: ReturnType<typeof useToast> | undefined;
 
-  toastAtom.on((info) => {
+  toastSignal.on((info) => {
     if (!info) return;
 
     toast?.show(info.render ? info : { ...info, render: () => <Toast {...info} /> });

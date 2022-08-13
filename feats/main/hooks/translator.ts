@@ -1,6 +1,6 @@
 import { defaultLocale } from '@/trans';
 import { createTranslator } from '@/trans/helpers/createTranslator';
 
-const [useMainTranslation, mainTrans] = createTranslator(defaultLocale, 'main');
+const [useMainTranslation, MainText] = createTranslator(defaultLocale, 'main');
 
-export { useMainTranslation, mainTrans };
+export { useMainTranslation, MainText };

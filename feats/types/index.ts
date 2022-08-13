@@ -1,3 +1,4 @@
+import { NavigatorScreenParams, RouteProp, ParamListBase } from '@react-navigation/native';
 import type { useMediaQuery } from 'native-base';
 import { InterfaceToastProps } from 'native-base/lib/typescript/components/composites/Toast';
 
@@ -50,3 +51,12 @@ export type AnyComponent<P> =
   | ((props: P) => unknown);
 
 export type PropsOf<T> = T extends AnyComponent<infer P> ? P : never;
+
+export type ScreenProps<T extends ParamListBase, N extends keyof T> = {
+  route: RouteProp<T, N>;
+};
+
+/**
+ * use to nested screen params
+ */
+export type ScreenParams<T> = NavigatorScreenParams<T>;

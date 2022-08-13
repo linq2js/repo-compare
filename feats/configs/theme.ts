@@ -23,10 +23,7 @@ const themeConfigs = extendTheme({
     '2xl': 1536,
   },
   components: {},
-  config: {
-    // initialColorMode: 'dark',
-    // useSystemColorMode: false,
-  },
+  config: {},
 });
 
 export { themeConfigs };
