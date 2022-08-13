@@ -4,7 +4,7 @@ import { slot } from 'rativ/react';
 
 import { createElement, FC, ReactNode } from 'react';
 
-import { PropsOf, VoidFunction } from '../../types';
+import { PropsOf, VoidFunction } from '@/types';
 
 export type ModalBodyProps<R> = {
   isOpen: boolean;

@@ -8,7 +8,7 @@ import { initTranslation } from '@/trans';
  * where to put all app bootstrapping logic
  */
 const bootstrap = () => {
-  console.log('bootstrap');
+  // console.log('bootstrap');
 
   initTranslation();
 

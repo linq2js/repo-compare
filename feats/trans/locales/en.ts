@@ -9,6 +9,9 @@ export default {
     AddRepoButton: {
       text: 'Add Repo',
     },
+    HomeScreeen: {
+      heading: 'asdsadsa',
+    },
     SearchRepoModal: {
       heading: 'Search Repo',
     },

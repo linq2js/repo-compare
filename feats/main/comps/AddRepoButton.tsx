@@ -1,9 +1,8 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { Fab, Icon } from 'native-base';
 import { stable } from 'rativ/react';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
-import { mainTrans } from '../hooks/translation';
+import { mainTrans } from '../hooks/translator';
 import { SearchRepoModal } from '../modals/SearchRepoModal';
 
 const AddRepoButton = stable(() => {

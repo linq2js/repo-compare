@@ -11,7 +11,7 @@ import { searchRepoSaga as githubSearchRepoSaga } from '@/repo/github/sagas';
 
 const searchRepoSaga = ({ debounce }: SC) => {
   // listen searchTermAtom changed and debouce execution in 300ms
-  debounce(300, searchTermAtom, onSearchTermChangedSaga);
+  debounce(0, searchTermAtom, onSearchTermChangedSaga);
 };
 
 const onSearchTermChangedSaga = async ({ race }: SC) => {
@@ -40,7 +40,6 @@ const startSearchingSaga = async ({ call, set }: SC) => {
     const result = call(searchSaga, { name: repoName, count: 10 });
     await set(searchRepoResultAtom, result);
   } catch (ex) {
-    console.log(ex);
     // show toast
     toastAtom.set({
       type: 'error',

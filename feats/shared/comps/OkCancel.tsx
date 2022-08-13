@@ -1,7 +1,7 @@
 import { stable } from 'rativ/react';
 
 import { ModalButtonProps } from '../helpers/createModal';
-import { sharedTrans } from '../hooks/translation';
+import { sharedTrans } from '../hooks/translator';
 import { PrimaryButton } from './PrimaryButton';
 import { SecondaryButton } from './SecondaryButton';
 

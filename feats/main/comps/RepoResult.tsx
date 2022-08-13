@@ -17,6 +17,7 @@ const openLink =
 
 const RepoResult = stable((props: Props) => {
   /* stable part */
+
   return (
     <HStack alignItems="start" space="sm">
       <VStack flex={1}>

@@ -25,12 +25,12 @@ function interpolateTranslations(resources: Record<string, unknown>) {
         if (value.indexOf('@{') === -1) {
           return;
         }
-        const interpolatedValue = value.replace(/@\{([^}]+)\}/g, (_, key) => {
-          const value = get(moduleData, key, notExist) as string;
-          if (value === notExist) {
-            throw new Error(`The key "${key}" does not exist`);
+        const interpolatedValue = value.replace(/@\{([^}]+)\}/g, (_, substitution) => {
+          const referencedText = get(moduleData, substitution, notExist) as string;
+          if (referencedText === notExist) {
+            throw new Error(`The key "${substitution}" does not exist`);
           }
-          return value;
+          return referencedText;
         });
         parent[key] = interpolatedValue;
       }

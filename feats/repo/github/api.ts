@@ -6,12 +6,11 @@ import { GithubRawSearchRepoResult, GithubSearchPayload } from './types';
 const configs: Configs = {
   http: { baseUrl: process.env.PUBLIC_GITHUB_API_ENDPOINT },
 };
-
-const api = define({
-  configs,
-  search: rest<GithubSearchPayload, GithubRawSearchRepoResult>('/search/repositories', {
-    convertPayloadTo: 'query',
-  }),
+// https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting
+const search = rest<GithubSearchPayload, GithubRawSearchRepoResult>('/search/repositories', {
+  convertPayloadTo: 'query',
 });
+
+const api = define({ configs, search });
 
 export { api };

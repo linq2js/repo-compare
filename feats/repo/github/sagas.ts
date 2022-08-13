@@ -14,6 +14,7 @@ const searchRepoSaga = async (
   let page = 1;
 
   // continue calling search API until desired items are filled
+
   while (items.length < count) {
     const pageSize = Math.min(10, count - items.length);
     const result = await call(api.search, {

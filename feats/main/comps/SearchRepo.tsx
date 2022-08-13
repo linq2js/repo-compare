@@ -1,8 +1,8 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { HStack, Icon, Input, ScrollView, VStack } from 'native-base';
 import { stable } from 'rativ/react';
 
 import { Suspense } from 'react';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { searchTermAtom } from '../atoms/searchTermAtom';
 import { RepoResultSkeleton } from './RepoResult';

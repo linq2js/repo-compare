@@ -1,6 +1,6 @@
 import { Heading } from 'native-base';
 
-import { mainTrans } from '../hooks/translation';
+import { mainTrans } from '../hooks/translator';
 
 import { SearchRepo } from '@/main/comps/SearchRepo';
 import { OkCancel } from '@/shared/comps/OkCancel';

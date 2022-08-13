@@ -22,6 +22,7 @@ const themeConfigs = extendTheme({
     xl: 1280,
     '2xl': 1536,
   },
+  components: {},
   config: {
     // initialColorMode: 'dark',
     // useSystemColorMode: false,
