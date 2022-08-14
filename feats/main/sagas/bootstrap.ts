@@ -3,6 +3,7 @@ import { spawn } from 'rativ/saga';
 import { bootstrapedAtom } from '../atoms/bootstrapedAtom';
 import { toastSignal } from '../atoms/toastSignal';
 
+import { navigationBoostrap } from '@/navigation/sagas/navigationBootstrap';
 import { translationBootstrap } from '@/trans/sagas/translationBootstrap';
 import { userBootstrap } from '@/user/sagas/userBootstrap';
 
@@ -19,7 +20,7 @@ const bootstrap = () => {
     });
 
     // wait until all feature bootstraped
-    await all({ userBootstrap, translationBootstrap });
+    await all({ userBootstrap, translationBootstrap, navigationBoostrap });
 
     await set(bootstrapedAtom, true);
   });

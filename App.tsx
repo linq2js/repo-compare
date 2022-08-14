@@ -1,4 +1,3 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { NativeBaseProvider } from 'native-base';
 import { stable } from 'rativ/dist/tsc/react';
 
@@ -7,8 +6,8 @@ import { bootstrapedAtom } from '@/main/atoms/bootstrapedAtom';
 import { MainNav } from '@/main/navigator';
 import { bootstrap } from '@/main/sagas/bootstrap';
 import { BootstrapingScreen } from '@/main/screens/BootstrapingScreen';
+import { NavigationContainer } from '@/navigation/comps/NavigationContainer';
 import { RootNavigator } from '@/navigation/comps/RootNavigator';
-import { navigationContainerRef } from '@/navigation/helpers/createnavigator';
 import { ResponsiveProvider } from '@/shared/comps/ResponsiveProvider';
 import { ToastProvider } from '@/shared/comps/ToastProvider';
 import { FatalErrorScreen } from '@/shared/screens/FatalErrorScreen';
@@ -20,7 +19,7 @@ const App = stable(() => {
 
   return () => {
     const navigator = bootstrapedAtom() ? (
-      <NavigationContainer ref={navigationContainerRef}>
+      <NavigationContainer>
         <RootNavigator
           navigators={[MainNav, UserNav]}
           screenOptions={{ animation: 'slide_from_bottom' }}

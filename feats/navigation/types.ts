@@ -46,12 +46,6 @@ export type RootNavigatorProps = Omit<
   renderer?: (screens: ReactNode, rootStack: StackNavigatorWrapper<{}>['wrapped']) => ReactNode;
   getFatalError?: () => Error;
   isLoading?: () => boolean;
-  /**
-   * render screen when there is any error (getFatalError(), reactive error)
-   */
   errorRenderer?: ErrorRenderer;
-  /**
-   * render screen when isLoading() === true or there is any reactive object is loading
-   */
   loadingRenderer?: LoadingRenderer;
 };

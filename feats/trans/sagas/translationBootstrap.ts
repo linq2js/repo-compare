@@ -1,12 +1,11 @@
 import i18n from 'i18next';
-import { Saga } from 'rativ/saga';
 
 import { initReactI18next } from 'react-i18next';
 
 import { allLocales } from '..';
 import { interpolateTranslations } from '../helpers/interpolateTranslations';
 
-const translationBootstrap: Saga = () => {
+const translationBootstrap = () => {
   interpolateTranslations(allLocales);
 
   i18n

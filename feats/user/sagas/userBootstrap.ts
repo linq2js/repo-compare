@@ -1,8 +1,8 @@
-import { Saga } from 'rativ/saga';
+import { SC } from 'rativ/saga';
 
 import { userSideEffects } from './userSideEffects';
 
-const userBootstrap: Saga = ({ spawn }) => {
+const userBootstrap = ({ spawn }: SC) => {
   // using spawn to execute the task with non-blocking mode
   spawn(({ fork }) => {
     fork(userSideEffects);

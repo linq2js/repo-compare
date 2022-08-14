@@ -1,4 +1,4 @@
-import { Saga } from 'rativ/saga';
+import { SC } from 'rativ/saga';
 
 import { userApi } from '../api/userApi';
 import { userProfileAtom } from '../atoms/userProfileAtom';
@@ -7,7 +7,7 @@ import { logoutSignal } from '../signals/logoutSignal';
 
 import { toastSignal } from '@/main/atoms/toastSignal';
 
-const userSideEffects: Saga = async ({ when, call, infinite, set }) => {
+const userSideEffects = async ({ when, call, infinite, set }: SC) => {
   await infinite(async () => {
     try {
       const { username, password } = await when(loginSignal);

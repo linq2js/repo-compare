@@ -8,6 +8,12 @@ import { RootNavigatorProps } from '../types';
 import { isPromiseLike } from '@/shared/helpers/isPromiseLike';
 import { PropsOf } from '@/types';
 
+/**
+ * RootNavigator handles rendering of multiple child navigators. When evaluating child navigator,
+ * if the child navigator uses reactive object (atoms) and that object is suspending,
+ * an promise object will be thrown and RootNavigator will capture that and call loadingRenderer to get list of screen for loading status.
+ * If there is unhandled error throwns, RootNavigator will capture that error and call errorRenderer to get list of screen for error status
+ */
 const RootNavigator = stable((props: RootNavigatorProps) => {
   const Stack = createNativeStackNavigator();
   const renderDefaultNavigator = (node: ReactNode, navigatorProps: unknown) =>
