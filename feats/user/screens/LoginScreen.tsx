@@ -1,12 +1,12 @@
 import { Button } from 'native-base';
-import { stable } from 'rativ/react';
 
 import { loginSignal } from '../signals/loginSignal';
 
 import { ThemedBox } from '@/shared/comps/ThemedBox';
 import { ThemedText } from '@/shared/comps/ThemedText';
+import { createScreen } from '@/shared/helpers/createScreen';
 
-const LoginScreen = stable(() => () => {
+const LoginScreen = createScreen(() => () => {
   return (
     <ThemedBox flex={1}>
       <ThemedText>Login Screen</ThemedText>

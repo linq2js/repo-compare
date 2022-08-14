@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Button } from 'native-base';
-import { stable } from 'rativ/react';
 
 import { ColorModeSwitcher } from '@/shared/comps/ColorModeSwitcher';
 import { ThemedBox } from '@/shared/comps/ThemedBox';
 import { ThemedText } from '@/shared/comps/ThemedText';
+import { createScreen } from '@/shared/helpers/createScreen';
 import { ScreenProps } from '@/types';
 import { UserNav } from '@/user/navigator';
 
@@ -18,20 +18,20 @@ export type NestedNavigator = {
 
 const Tab = createBottomTabNavigator<NestedNavigator>();
 
-const Tab1Screen = stable(() => () => (
+const Tab1Screen = createScreen(() => () => (
   <ThemedBox flex={1} p={4}>
     <ColorModeSwitcher />
-    <Button onPress={() => UserNav('profile')}>Profile Screen</Button>
+    <Button onPress={() => UserNav('user_profile')}>Profile Screen</Button>
   </ThemedBox>
 ));
 
-const Tab2Screen = stable((props: ScreenProps<NestedNavigator, 'tab2'>) => () => (
+const Tab2Screen = createScreen((props: ScreenProps<NestedNavigator, 'tab2'>) => () => (
   <ThemedBox flex={1} p={4}>
     <ThemedText>{props.route.name}</ThemedText>
   </ThemedBox>
 ));
 
-const HomeScreen = stable(() => (
+const HomeScreen = createScreen(() => (
   <Tab.Navigator>
     <Tab.Screen name="tab1" component={Tab1Screen} />
     <Tab.Screen name="tab2" component={Tab2Screen} />

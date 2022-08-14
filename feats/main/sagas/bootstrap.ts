@@ -1,8 +1,9 @@
 import { spawn } from 'rativ/saga';
 
+import { bootstrapedAtom } from '../atoms/bootstrapedAtom';
 import { toastSignal } from '../atoms/toastSignal';
 
-import { initTranslation } from '@/trans';
+import { translationBootstrap } from '@/trans/sagas/translationBootstrap';
 import { userBootstrap } from '@/user/sagas/userBootstrap';
 
 /**
@@ -11,14 +12,16 @@ import { userBootstrap } from '@/user/sagas/userBootstrap';
 const bootstrap = () => {
   // console.log('bootstrap');
 
-  initTranslation();
-
-  spawn(({ onError, call }) => {
+  spawn(async ({ onError, all, set }) => {
+    // handle unexpected error that throws by descendant tasks
     onError((error: Error) => {
       toastSignal({ type: 'error', description: error.message });
     });
 
-    call(userBootstrap);
+    // wait until all feature bootstraped
+    await all({ userBootstrap, translationBootstrap });
+
+    await set(bootstrapedAtom, true);
   });
 };
 

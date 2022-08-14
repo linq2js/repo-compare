@@ -1071,7 +1071,7 @@
     core-js-pure "^3.20.2"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.14.0", "@babel/runtime@^7.14.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.17.2", "@babel/runtime@^7.6.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.14.0", "@babel/runtime@^7.14.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.17.2", "@babel/runtime@^7.6.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.18.9"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.9.tgz#b4fcfce55db3d2e5e080d2490f608a3b9f407f4a"
   integrity sha512-lkqXDcvlFT5rvEjiu6+QYO+1GXrEHRo2LOtS7E4GtX5ESIZOgepqsZBVIj6Pv+a6zqsya9VCgiK1KAK4BvJDAw==
@@ -8678,10 +8678,10 @@ range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-rativ@3.1.27:
-  version "3.1.27"
-  resolved "https://registry.yarnpkg.com/rativ/-/rativ-3.1.27.tgz#d5456901848fe639756bc2bf93ba77ea5f02b9a5"
-  integrity sha512-3tKSRLb5Q65T28KRAjI/kbzLWU/VDy4yxsEB2gIuDvVTCrqpZr4G38gBEEma1sIVnANH7cv/OhCM8sRIm49BIg==
+rativ@3.1.28:
+  version "3.1.28"
+  resolved "https://registry.yarnpkg.com/rativ/-/rativ-3.1.28.tgz#dfff3bf4c013d4e1857bb6c3026a296fe7d06a4d"
+  integrity sha512-J13/Yc/2rFw/T1TA9e/gG3V7voilrkKGCxuwHlhVmDO+yIgxFA1Vsg7GdOF6uYHJmH02UDbW2PrJ3cNvIlEEuw==
 
 raw-body@2.4.0:
   version "2.4.0"
@@ -8719,6 +8719,13 @@ react-dom@17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.2"
+
+react-error-boundary@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-3.1.4.tgz#255db92b23197108757a888b01e5b729919abde0"
+  integrity sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 react-freeze@^1.0.0:
   version "1.0.3"

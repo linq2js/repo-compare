@@ -1,19 +1,18 @@
 import { userProfileAtom } from './atoms/userProfileAtom';
 import { LoginScreen } from './screens/LoginScreen';
-import { ProfileScreen } from './screens/ProfileScreen';
+import { UserProfileScreen } from './screens/UserProfileScreen';
 
 import { createNavigator } from '@/navigation/helpers/createnavigator';
 
 type Params = {
   login: undefined;
-  manage_user: undefined;
-  profile: undefined;
+  user_profile: undefined;
 };
 
 const UserNav = createNavigator<Params>(({ Screen }) =>
   userProfileAtom() ? (
     <>
-      <Screen name="profile" component={ProfileScreen} />
+      <Screen name="user_profile" component={UserProfileScreen} />
     </>
   ) : (
     <>

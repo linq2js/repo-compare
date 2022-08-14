@@ -81,6 +81,7 @@ App.tsx
 - Class/Type/Model name must be CamelCase (ex: `User`, `UserProfileModel`)
 - Util/helper/service file name muse be pascalCase (ex: `createModal.tsx`)
 - The component's skeleton must be in the same file as the component
+- Must use createScreen() to create a screen
 
 # Project pakcages
 
@@ -190,6 +191,7 @@ All locale files are located in /feats/trans/locales
   - If you want to navigate to other screen, use XXXNavigator (XXX is name of the feature) object
   - If you want to go back, use goBack method in `@shared/helpers/navigator`
   - The XXXScreen component must handle route.params to render needed child components. The route params MUST NOT BE USED anywhere. Using route params in the normal component is very confusing, we can not reuse that component elsewhere
+- Screen name must snake_case (ex: `user_profile`, `user_settings`, `device_settings`)
 
 # Rativ user guide
 

@@ -3,10 +3,10 @@ import { stable } from 'rativ/react';
 import { ThemedBox } from '@/shared/comps/ThemedBox';
 import { ThemedText } from '@/shared/comps/ThemedText';
 
-const LoadingScreen = stable(() => (
+const BootstrapingScreen = stable(() => (
   <ThemedBox flex={1}>
-    <ThemedText>Loading...</ThemedText>
+    <ThemedText>Bootstraping...</ThemedText>
   </ThemedBox>
 ));
 
-export { LoadingScreen };
+export { BootstrapingScreen };
