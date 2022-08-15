@@ -1,6 +1,5 @@
-import { NavigationState } from '@react-navigation/native';
 import { atom } from 'rativ';
 
-const navigationStateAtom = atom<Readonly<NavigationState> | undefined>(undefined);
+const navigationStateAtom = atom<unknown | undefined>(undefined);
 
 export { navigationStateAtom };

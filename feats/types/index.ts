@@ -60,3 +60,8 @@ export type ScreenProps<T extends ParamListBase, N extends keyof T> = {
  * use to nested screen params
  */
 export type ScreenParams<T> = NavigatorScreenParams<T>;
+
+export type ThemeData = {
+  textColor: string;
+  backColor: string;
+};

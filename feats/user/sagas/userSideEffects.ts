@@ -1,25 +1,36 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SC } from 'rativ/saga';
 
 import { userApi } from '../api/userApi';
-import { userProfileAtom } from '../atoms/userProfileAtom';
+import { anonymousUser, userProfileAtom } from '../atoms/userProfileAtom';
 import { loginSignal } from '../signals/loginSignal';
 import { logoutSignal } from '../signals/logoutSignal';
 
-import { toastSignal } from '@/main/atoms/toastSignal';
+import { ACCESS_TOKEN_STORAGE_KEY } from '@/configs/user';
+import { toastSignal } from '@/main/signals/toastSignal';
 
-const userSideEffects = async ({ when, call, infinite, set }: SC) => {
+const handleUserLogin = async ({ when, call, infinite, set }: SC) => {
   await infinite(async () => {
     try {
-      const { username, password } = await when(loginSignal);
-      const laodUserProfileResult = call(userApi.login, { username, password });
-      await set(userProfileAtom, laodUserProfileResult);
+      // only listen loginSignal when current user is anonymous
+      if (userProfileAtom().role === 'anonymous') {
+        const { username, password } = await when(loginSignal);
+        const laodUserProfileResult = call(userApi.login, { username, password });
+        await set(userProfileAtom, laodUserProfileResult);
+        await AsyncStorage.setItem(ACCESS_TOKEN_STORAGE_KEY, userProfileAtom().accessToken ?? '');
+      }
       await when(logoutSignal);
-      await set(userProfileAtom, undefined);
+      await AsyncStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
+      await set(userProfileAtom, anonymousUser);
       // continue handling user login/logout login
     } catch (ex) {
       toastSignal({ type: 'error', description: (ex as Error).message });
     }
   });
+};
+
+const userSideEffects = async ({ fork }: SC) => {
+  fork(handleUserLogin);
 };
 
 export { userSideEffects };

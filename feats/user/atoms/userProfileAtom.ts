@@ -2,6 +2,10 @@ import { atom } from 'rativ';
 
 import { User } from '../types';
 
-const userProfileAtom = atom<User | undefined>(undefined);
+const guestUser: User = { id: 0, username: 'guest', role: 'guest' };
 
-export { userProfileAtom };
+const anonymousUser: User = { id: 0, username: 'anonymous', role: 'anonymous' };
+
+const userProfileAtom = atom<User>(anonymousUser);
+
+export { userProfileAtom, guestUser, anonymousUser };

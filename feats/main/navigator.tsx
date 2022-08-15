@@ -10,7 +10,7 @@ type Params = {
 
 const MainNav = createNavigator<Params>(({ Screen }) =>
   // using atom of other feature to handle screen rendering
-  userProfileAtom() ? (
+  userProfileAtom().role !== 'anonymous' ? (
     <>
       <Screen name="home" component={HomeScreen} options={{ headerShown: false }} />
     </>

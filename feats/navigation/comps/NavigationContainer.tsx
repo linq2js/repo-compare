@@ -21,14 +21,17 @@ const invokeNavigation = <T extends ParamListBase>(
   invoker(navigationContainerRef as NavigationContainerRefWithCurrent<T>);
 };
 
-const NavigationContainer = stable((props: PropsOf<typeof OriginalNavigationContainer>) => () => (
-  <OriginalNavigationContainer
-    {...props}
-    ref={navigationContainerRef}
-    initialState={navigationStateAtom()}
-    onReady={navigationReadySignal}
-    onStateChange={(state) => state && naviationStateChangeSignal(state)}
-  />
-));
+const NavigationContainer = stable((props: PropsOf<typeof OriginalNavigationContainer>) => () => {
+  return (
+    <OriginalNavigationContainer
+      {...props}
+      ref={navigationContainerRef}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      initialState={navigationStateAtom() as any}
+      onReady={navigationReadySignal}
+      onStateChange={(state) => state && naviationStateChangeSignal(state)}
+    />
+  );
+});
 
 export { NavigationContainer, invokeNavigation };

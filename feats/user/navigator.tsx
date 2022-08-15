@@ -10,7 +10,7 @@ type Params = {
 };
 
 const UserNav = createNavigator<Params>(({ Screen }) =>
-  userProfileAtom() ? (
+  userProfileAtom().role !== 'anonymous' ? (
     <>
       <Screen name="user_profile" component={UserProfileScreen} />
     </>

@@ -3,7 +3,7 @@ import { stable } from 'rativ/react';
 
 import { Toast } from './Toast';
 
-import { toastSignal } from '@/main/atoms/toastSignal';
+import { toastSignal } from '@/main/signals/toastSignal';
 
 const ToastProvider = stable(() => {
   let toast: ReturnType<typeof useToast> | undefined;

@@ -1,12 +1,12 @@
 import { Box, useColorModeValue } from 'native-base';
 
-import { themeConfigs } from '@/configs/theme';
-import { PropsOf } from '@/types';
+import { darkTheme, lightTheme } from '@/configs/theme';
+import { PropsOf, ThemeData } from '@/types';
 
 const ThemedBox = (props: PropsOf<typeof Box>) => {
-  const color = useColorModeValue(themeConfigs.light.backColor, themeConfigs.dark.backColor);
+  const theme = useColorModeValue(lightTheme, darkTheme) as ThemeData;
 
-  return <Box bg={color} {...props} />;
+  return <Box bg={theme.backColor} {...props} />;
 };
 
 export { ThemedBox };

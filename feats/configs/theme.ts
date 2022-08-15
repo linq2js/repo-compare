@@ -1,14 +1,8 @@
 import { extendTheme, theme } from 'native-base';
 
+import { ThemeData } from '@/types';
+
 const themeConfigs = extendTheme({
-  dark: {
-    textColor: theme.colors.lightText,
-    backColor: theme.colors.gray['800'],
-  },
-  light: {
-    textColor: theme.colors.darkText,
-    backColor: theme.colors.white,
-  },
   colors: {
     ...theme.colors,
     primary: theme.colors.blue,
@@ -26,4 +20,14 @@ const themeConfigs = extendTheme({
   config: {},
 });
 
-export { themeConfigs };
+const darkTheme: ThemeData = {
+  textColor: theme.colors.lightText,
+  backColor: theme.colors.gray['800'],
+};
+
+const lightTheme: ThemeData = {
+  textColor: theme.colors.darkText,
+  backColor: theme.colors.white,
+};
+
+export { themeConfigs, darkTheme, lightTheme };
