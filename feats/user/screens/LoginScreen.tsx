@@ -1,4 +1,5 @@
 import { Button } from 'native-base';
+import { stable } from 'rativ/dist/tsc/react';
 
 import { useForm } from 'react-hook-form';
 
@@ -15,7 +16,9 @@ export type LoginFormModel = {
   password: string;
 };
 
-const LoginScreen = createScreen(() => {
+const LoginScreen = createScreen(() => <LoginScreenImpl />);
+
+const LoginScreenImpl = stable(() => {
   // define handleSubmit in stable part
   const handleSubmit = ({ username, password }: LoginFormModel) => {
     loginSignal({ username, password });
@@ -37,4 +40,4 @@ const LoginScreen = createScreen(() => {
   };
 });
 
-export { LoginScreen };
+export { LoginScreen, LoginScreenImpl };
