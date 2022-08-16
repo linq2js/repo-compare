@@ -91,6 +91,12 @@ App.tsx
 
   export { MyScreen, MyScreenImpl }
 
+  // OtherScreen.tsx
+  import {MyScreenImpl} from '@/my/screens/MyScreen';
+
+  const OtherScreen = createScreen(props => {
+    return <MyScreenImpl />;
+  })
   ```
 
 - The modal component name must have `Modal` postfix (ex: `LoginModal`)
@@ -210,6 +216,36 @@ All locale files are located in /feats/trans/locales
   - If you want to go back, use goBack method in `@shared/helpers/navigator`
   - The XXXScreen component must handle route.params to render needed child components. The route params MUST NOT BE USED anywhere. Using route params in the normal component is very confusing, we can not reuse that component elsewhere
 - Screen name must snake_case (ex: `user_profile`, `user_settings`, `device_settings`)
+- Sample navigator
+
+  ```tsx
+
+  // feats/user/navigator.tsx
+  type Params = {
+    user_profile: undefined;
+  };
+
+  const UserNav = createNavigator<Params>(({ Screen }) => (
+    <>
+      <Screen name="user_profile" component={UserProfileScreen} />
+    </>
+  ));
+
+  // feats/todo/navigator.tsx
+  type Params = {
+    todo_list: undefined;
+  };
+
+  const TodoNav = createNavigator<Params>(({ Screen }) => (
+    <>
+      <Screen name="todo_list" component={TodoListScreen} />
+    </>
+  ));
+
+  // navigate to todo_list_screen
+  TodoNav("todo_list_screen");
+
+  ```
 
 # Rativ user guide
 
