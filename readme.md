@@ -75,6 +75,24 @@ App.tsx
 ## Conventions
 
 - The screen component name must have `Screen` postfix (ex: `HomeScreen`)
+- If the Screen can be shared with other feature, developer should create 2 components: `MyScreen` and `MyScreenImpl`. The MyScreen uses to render for current feature, it renders MyScreenImpl as child component. The MyScreenImpl can be re-use by other feature
+
+  ```jsx
+  // MyScreen.tsx
+  const MyScreen = createScreen((props) => {
+    // handling routing here
+    // props.route.params
+    return <MyScreenImpl />;
+  });
+
+  const MyScreenImpl = stable(()) => {
+    return <Text>My Screen</Text>
+  }
+
+  export { MyScreen, MyScreenImpl }
+
+  ```
+
 - The modal component name must have `Modal` postfix (ex: `LoginModal`)
 - Normal folder name must be snake_case (ex: `feats/quick_start`)
 - Component file/folder name muse be CamelCase (ex: `HomeScreen`, `UserProfile`)
