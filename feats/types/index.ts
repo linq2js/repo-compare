@@ -65,3 +65,6 @@ export type ThemeData = {
   textColor: string;
   backColor: string;
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type AnyRecord<T extends number | string | symbol = string> = Record<T, any>;

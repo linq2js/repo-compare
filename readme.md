@@ -245,6 +245,9 @@ All locale files are located in /feats/trans/locales
   // navigate to todo_list_screen
   TodoNav("todo_list_screen");
 
+  // render navigator
+  <RootNavigator navigators={[ UserNav, TodoNav ]}/>
+
   ```
 
 # Rativ user guide
