@@ -75,27 +75,27 @@ App.tsx
 ## Conventions
 
 - The screen component name must have `Screen` postfix (ex: `HomeScreen`)
-- If the Screen can be shared with other feature, developer should create 2 components: `MyScreen` and `MyScreenImpl`. The MyScreen uses to render for current feature, it renders MyScreenImpl as child component. The MyScreenImpl can be re-use by other feature
+- In order to allow screen can be shared with other feature, developer should create 2 components: `LoginScreen` and `LoginImpl`. The LoginScreen uses to render for current feature, it renders LoginImpl as child component. The LoginImpl can be re-use by other feature
 
   ```jsx
-  // MyScreen.tsx
-  const MyScreen = createScreen((props) => {
+  // LoginScreen.tsx
+  const LoginScreen = createScreen((props) => {
     // handling routing here
     // props.route.params
-    return <MyScreenImpl />;
+    return <LoginImpl />;
   });
 
-  const MyScreenImpl = stable(()) => {
+  const LoginImpl = stable(()) => {
     return <Text>My Screen</Text>
   }
 
-  export { MyScreen, MyScreenImpl }
+  export { LoginScreen, LoginImpl }
 
   // OtherScreen.tsx
-  import {MyScreenImpl} from '@/my/screens/MyScreen';
+  import {LoginImpl} from '@/my/screens/LoginScreen';
 
   const OtherScreen = createScreen(props => {
-    return <MyScreenImpl />;
+    return <LoginImpl />;
   })
   ```
 
