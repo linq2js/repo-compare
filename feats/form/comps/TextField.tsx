@@ -8,7 +8,10 @@ import { FieldError, Props as ErrorProps } from './FieldError';
 import { PropsOf } from '@/types';
 
 export type Props<T, N extends FieldPath<T>> = FieldProps<T, N> &
-  PropsOf<typeof Input> & { errorProps?: Omit<ErrorProps<T, N>, 'control' | 'name'> };
+  PropsOf<typeof Input> & {
+    errorProps?: Omit<ErrorProps<T, N>, 'control' | 'name'>;
+    errorPosition?: 'top' | 'bottom';
+  };
 
 const TextField = <T, N extends FieldPath<T>>({
   name,
@@ -16,6 +19,7 @@ const TextField = <T, N extends FieldPath<T>>({
   defaultValue,
   errorProps,
   rules,
+  errorPosition,
   ...props
 }: Props<T, N>) => {
   const { field } = useController({
@@ -38,6 +42,15 @@ const TextField = <T, N extends FieldPath<T>>({
 
   if (!errorNode) {
     return inputNode;
+  }
+
+  if (errorPosition === 'top') {
+    return (
+      <>
+        {errorNode}
+        {inputNode}
+      </>
+    );
   }
 
   return (

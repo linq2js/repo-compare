@@ -1,6 +1,7 @@
 import { Button } from 'native-base';
 
 import { userProfileAtom } from '../atoms/userProfileAtom';
+import { UserNav } from '../navigator';
 import { logoutSignal } from '../signals/logoutSignal';
 
 import { ThemedBox } from '@/shared/comps/ThemedBox';
@@ -12,6 +13,7 @@ const UserProfileScreen = createScreen(() => {
     return (
       <ThemedBox flex={1}>
         <ThemedText>{userProfileAtom().username}</ThemedText>
+        <Button onPress={() => UserNav('todo_list')}>Todo List</Button>
         <Button onPress={() => logoutSignal()}>Logout</Button>
       </ThemedBox>
     );

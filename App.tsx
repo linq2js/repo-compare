@@ -22,7 +22,6 @@ const App = stable(() => {
       <NavigationContainer>
         <RootNavigator
           navigators={[MainNav, UserNav]}
-          screenOptions={{ animation: 'slide_from_bottom' }}
           loadingRenderer={({ Screen }) => (
             <Screen name="loading" component={LoadingScreen} options={{ headerShown: false }} />
           )}

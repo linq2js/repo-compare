@@ -14,9 +14,9 @@ export type LoginFormModel = {
   password: string;
 };
 
-const LoginScreen = createScreen(() => <LoginScreenImpl />);
+const LoginScreen = createScreen(() => <LoginImpl />);
 
-const LoginScreenImpl = stable(() => {
+const LoginImpl = stable(() => {
   // define handleSubmit in stable part
   const handleSubmit = ({ username, password }: LoginFormModel) => {
     loginSignal({ username, password });
@@ -34,6 +34,7 @@ const LoginScreenImpl = stable(() => {
             name="username"
             rules={{ required: true }}
             placeholder="Enter any username to login"
+            errorPosition="top"
             errorProps={{ message: 'Invalid email or password' }}
           />
 
@@ -51,4 +52,4 @@ const LoginScreenImpl = stable(() => {
   };
 });
 
-export { LoginScreen, LoginScreenImpl };
+export { LoginScreen, LoginImpl };
