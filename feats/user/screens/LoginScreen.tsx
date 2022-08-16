@@ -17,11 +17,6 @@ export type LoginFormModel = {
 const LoginScreen = createScreen(() => <LoginImpl />);
 
 const LoginImpl = stable(() => {
-  // define handleSubmit in stable part
-  const handleSubmit = ({ username, password }: LoginFormModel) => {
-    loginSignal({ username, password });
-  };
-
   return () => {
     const { control, handleSubmit: onSubmit } = useForm<LoginFormModel>();
 
@@ -45,7 +40,7 @@ const LoginImpl = stable(() => {
             placeholder="123456"
             errorProps={{ message: 'Invalid email or password' }}
           />
-          <Button onPress={onSubmit(handleSubmit)}>Submit</Button>
+          <Button onPress={onSubmit(loginSignal)}>Submit</Button>
         </VStack>
       </ThemedBox>
     );

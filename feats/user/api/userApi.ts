@@ -12,6 +12,9 @@ const createUserModel = (username: string, password: string) => {
   } as User;
 };
 
+/**
+ * create an API that runs memory
+ */
 const login = memory(async ({ delay }, { username, password }: LoginPayload) => {
   await delay(2000);
   if (password !== '123456') {
