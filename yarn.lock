@@ -8680,10 +8680,10 @@ range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-rativ@3.1.29:
-  version "3.1.29"
-  resolved "https://registry.yarnpkg.com/rativ/-/rativ-3.1.29.tgz#dc80ab61fa0a6c3377601d32c0d69954adb2a7c2"
-  integrity sha512-GpaiUkmawv+Y7JlBSVDDQ5kbR0Sehv5VVPcT4DUa9pYo/fRkQeIcCF8MP7GKnmDGFG2bSfEnNOpgfm0Dvqgsrg==
+rativ@3.1.31:
+  version "3.1.31"
+  resolved "https://registry.yarnpkg.com/rativ/-/rativ-3.1.31.tgz#7a70b87f9e9b49ddc45329ddc500b48bd9c32802"
+  integrity sha512-fcch2C54r1g/Lij3BYmn62qNsx7REoOIMUmTKFq8hvxzKleV+YwoCfa1txOmlATjFOUAb4gfi0pbIGOLD30nxQ==
 
 raw-body@2.4.0:
   version "2.4.0"
