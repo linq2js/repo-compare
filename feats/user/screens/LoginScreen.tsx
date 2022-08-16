@@ -30,9 +30,19 @@ const LoginScreenImpl = stable(() => {
     return (
       <ThemedBox flex={1}>
         <ThemedText>Login Screen</ThemedText>
-        <TextField control={control} name="username" rules={{ required: true }} />
+        <TextField
+          control={control}
+          name="username"
+          rules={{ required: true }}
+          placeholder="Enter any username to login"
+        />
         <FieldError control={control} name="username" message="Invalid email or password" />
-        <TextField control={control} name="password" rules={{ required: true }} />
+        <TextField
+          control={control}
+          name="password"
+          rules={{ required: true }}
+          placeholder="123456"
+        />
         <FieldError control={control} name="password" message="Invalid email or password" />
         <Button onPress={onSubmit(handleSubmit)}>Submit</Button>
       </ThemedBox>
