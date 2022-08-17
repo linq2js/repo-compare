@@ -8,7 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Loading } from '../comps/Loading';
 import { isPromiseLike } from './isPromiseLike';
 
-import { goBack } from '@/navigation/navigator';
+import { goBack } from '@/nav';
 
 /**
  * create a screen component that is based on stable component.

@@ -28,7 +28,7 @@ const RootNavigator = stable((props: RootNavigatorProps) => {
       errorRenderer,
       getFatalError,
       isLoading,
-      navigators,
+      builders,
       ...otherProps
     } = props;
     // handle fatal error
@@ -44,7 +44,7 @@ const RootNavigator = stable((props: RootNavigatorProps) => {
     }
 
     try {
-      const children = navigators.map((x) => x.render(Stack)).filter((x) => Boolean(x));
+      const children = builders.map((x) => x(Stack)).filter((x) => Boolean(x));
       const result = createElement(Fragment, {}, ...children);
       if (renderer) {
         return renderer(result, Stack);

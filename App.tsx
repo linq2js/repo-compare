@@ -3,16 +3,16 @@ import { stable } from 'rativ/dist/tsc/react';
 
 import { themeConfigs } from '@/configs/theme';
 import { bootstrapedAtom } from '@/main/atoms/bootstrapedAtom';
-import { MainNav } from '@/main/navigator';
+import { MainNavBuilder } from '@/main/nav/builder';
 import { bootstrap } from '@/main/sagas/bootstrap';
 import { BootstrapingScreen } from '@/main/screens/BootstrapingScreen';
-import { NavigationContainer } from '@/navigation/comps/NavigationContainer';
-import { RootNavigator } from '@/navigation/comps/RootNavigator';
+import { NavigationContainer } from '@/nav/comps/NavigationContainer';
+import { RootNavigator } from '@/nav/comps/RootNavigator';
 import { ResponsiveProvider } from '@/shared/comps/ResponsiveProvider';
 import { ToastProvider } from '@/shared/comps/ToastProvider';
 import { FatalErrorScreen } from '@/shared/screens/FatalErrorScreen';
 import { LoadingScreen } from '@/shared/screens/LoadingScreen';
-import { UserNav } from '@/user/navigator';
+import { UserNavBuilder } from '@/user/nav/builder';
 
 const App = stable(() => {
   bootstrap();
@@ -21,7 +21,7 @@ const App = stable(() => {
     const navigator = bootstrapedAtom() ? (
       <NavigationContainer>
         <RootNavigator
-          navigators={[MainNav, UserNav]}
+          builders={[MainNavBuilder, UserNavBuilder]}
           loadingRenderer={({ Screen }) => (
             <Screen name="loading" component={LoadingScreen} options={{ headerShown: false }} />
           )}

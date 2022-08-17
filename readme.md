@@ -213,30 +213,35 @@ All locale files are located in /feats/trans/locales
 
 - DO NOT use useNavigation() hook
   - If you want to navigate to other screen, use XXXNavigator (XXX is name of the feature) object
-  - If you want to go back, use goBack method in `@shared/helpers/navigator`
+  - If you want to go back, use `goBack` method in `@shared/nav`
   - The XXXScreen component must handle route.params to render needed child components. The route params MUST NOT BE USED anywhere. Using route params in the normal component is very confusing, we can not reuse that component elsewhere
 - Screen name must snake_case (ex: `user_profile`, `user_settings`, `device_settings`)
 - Sample navigator
 
   ```tsx
 
-  // feats/user/navigator.tsx
+  // feats/user/nav/navigator.ts
   type Params = {
     user_profile: undefined;
   };
 
-  const UserNav = createNavigator<Params>(({ Screen }) => (
+  const UserNav = createNavigator<Params>();
+
+  // feats/user/nav/builder.tsx
+  const UserNavBuilder = UserNav.build(({ Screen }) => (
     <>
       <Screen name="user_profile" component={UserProfileScreen} />
     </>
   ));
 
-  // feats/todo/navigator.tsx
+  // feats/todo/nav/navigator.ts
   type Params = {
     todo_list: undefined;
   };
 
-  const TodoNav = createNavigator<Params>(({ Screen }) => (
+  const TodoNav = createNavigator<Params>();
+  // feats/todo/nav/builder.tsx
+  const TodoNavBuilder = TodoNav.build(({ Screen }) => (
     <>
       <Screen name="todo_list" component={TodoListScreen} />
     </>

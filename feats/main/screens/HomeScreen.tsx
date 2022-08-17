@@ -1,20 +1,14 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Button } from 'native-base';
 
+import { NestedNavigator } from '../nav/navigator';
+
 import { ColorModeSwitcher } from '@/shared/comps/ColorModeSwitcher';
 import { ThemedBox } from '@/shared/comps/ThemedBox';
 import { ThemedText } from '@/shared/comps/ThemedText';
 import { createScreen } from '@/shared/helpers/createScreen';
 import { ScreenProps } from '@/types';
-import { UserNav } from '@/user/navigator';
-
-/**
- * define nested screen
- */
-export type NestedNavigator = {
-  tab1: { number: 1 };
-  tab2: undefined;
-};
+import { UserNav } from '@/user/nav/navigator';
 
 const Tab = createBottomTabNavigator<NestedNavigator>();
 

@@ -10,8 +10,12 @@ export class StackNavigatorWrapper<P extends ParamListBase> {
   wrapped = createNativeStackNavigator<P>();
 }
 
+export type NavBuilder = (stack: ReturnType<typeof createNativeStackNavigator>) => ReactNode;
+
 export type Navigator<P extends ParamListBase> = {
-  render(stack: ReturnType<typeof createNativeStackNavigator>): ReactNode;
+  build(
+    builder: (rootStack: Omit<StackNavigatorWrapper<P>['wrapped'], 'Navigator'>) => ReactNode,
+  ): (stack: ReturnType<typeof createNativeStackNavigator>) => ReactNode;
   <R extends keyof P>(name: R, ...args: P[R] extends undefined ? [] : [P[R]]): void;
   <R extends keyof P>(
     options:
@@ -42,7 +46,7 @@ export type RootNavigatorProps = Omit<
   PropsOf<StackNavigatorWrapper<{}>['wrapped']['Navigator']>,
   'children'
 > & {
-  navigators: Navigator<any>[];
+  builders: NavBuilder[];
   renderer?: (screens: ReactNode, rootStack: StackNavigatorWrapper<{}>['wrapped']) => ReactNode;
   getFatalError?: () => Error;
   isLoading?: () => boolean;

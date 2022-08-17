@@ -4,7 +4,7 @@ import { spawn } from 'rativ/saga';
 import { bootstrapedAtom } from '../atoms/bootstrapedAtom';
 import { toastSignal } from '../signals/toastSignal';
 
-import { navigationBoostrap } from '@/navigation/sagas/navigationBootstrap';
+import { navigationBoostrap } from '@/nav/sagas/navigationBootstrap';
 import { translationBootstrap } from '@/trans/sagas/translationBootstrap';
 import { userBootstrap } from '@/user/sagas/userBootstrap';
 

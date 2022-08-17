@@ -1,7 +1,7 @@
 import { Button } from 'native-base';
 
 import { userProfileAtom } from '../atoms/userProfileAtom';
-import { UserNav } from '../navigator';
+import { UserNav } from '../nav/navigator';
 import { logoutSignal } from '../signals/logoutSignal';
 
 import { ThemedBox } from '@/shared/comps/ThemedBox';
